@@ -1,5 +1,11 @@
 ﻿var builder = WebApplication.CreateBuilder(args);
 
+// Configure Kestrel to listen on all IPs and a specific port
+//builder.WebHost.ConfigureKestrel(options =>
+//{
+//    options.ListenAnyIP(5346); // This will listen on all local IP addresses on port 5000
+//});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -18,7 +24,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Chat}/{action=Index}/{id?}");
 
 app.Run();
 
